@@ -1,8 +1,4 @@
 # ── Install / upgrade ipywidgets for Google Colab ──
-import subprocess, sys
-subprocess.run([sys.executable, '-m', 'pip', 'install', '-q', 'ipywidgets'], check=True)
-print('✅ Dependencies ready!')
-
 import numpy as np
 import matplotlib.pyplot as plt
 import matplotlib.patches as mpatches
