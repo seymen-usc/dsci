@@ -3,6 +3,40 @@ import subprocess, sys
 subprocess.run([sys.executable, '-m', 'pip', 'install', '-q', 'ipywidgets'], check=True)
 print('✅ Dependencies ready!')
 
+import numpy as np
+import matplotlib.pyplot as plt
+import matplotlib.patches as mpatches
+from matplotlib.colors import ListedColormap
+import warnings
+warnings.filterwarnings('ignore')
+
+from sklearn.linear_model import LinearRegression, Ridge, Lasso
+from sklearn.preprocessing import PolynomialFeatures
+from sklearn.pipeline import make_pipeline
+from sklearn.tree import DecisionTreeClassifier, plot_tree
+from sklearn.neighbors import KNeighborsClassifier, KNeighborsRegressor
+from sklearn.svm import SVC
+from sklearn.cluster import KMeans
+from sklearn.datasets import make_classification, make_regression, make_blobs
+from sklearn.model_selection import train_test_split, cross_val_score
+from sklearn.metrics import (
+    confusion_matrix, classification_report, roc_curve, auc,
+    precision_recall_curve, mean_squared_error, r2_score
+)
+from sklearn.decomposition import PCA
+
+import ipywidgets as widgets
+from ipywidgets import interact, interactive, fixed, HBox, VBox, Output, Layout
+from IPython.display import display, clear_output
+
+# Consistent random seed
+np.random.seed(42)
+
+# Plot style
+plt.rcParams.update({'figure.dpi': 100, 'font.size': 11,
+                     'axes.spines.top': False, 'axes.spines.right': False})
+
+
 def linear_regression():
 
   # Generate data: exam score vs hours studied (with a burnout curve)
